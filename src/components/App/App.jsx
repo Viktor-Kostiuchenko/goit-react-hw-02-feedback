@@ -25,11 +25,12 @@ export default class App extends Component {
   };
 
   countTotalFeedback = () => {
-    return this.state.good + this.state.neutral + this.state.bad;
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
   };
 
   countPositiveFeedbackPercentage = () => {
-    const good = this.state.good;
+    const { good } = this.state;
     const total = this.countTotalFeedback();
     return Math.trunc((good / total) * 100);
   };
@@ -40,9 +41,7 @@ export default class App extends Component {
       <>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            good={good}
-            neutral={neutral}
-            bad={bad}
+            entries={Object.entries(this.state)}
             onIncreaseFbAmount={this.increaseFbAmount}
             onDecreaseFbAmount={this.decreaseFbAmount}
           />

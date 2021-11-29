@@ -1,8 +1,10 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import s from './Buttons.module.css';
 
 export default function Buttons({
-  fbAmount,
   fbName,
+  fbAmount,
   onDecreaseFbAmount,
   onIncreaseFbAmount,
 }) {
@@ -22,3 +24,8 @@ export default function Buttons({
     </>
   );
 }
+
+Buttons.propTypes = {
+  fbName: PropTypes.string.isRequired,
+  fbAmount: PropTypes.number.isRequired,
+};
