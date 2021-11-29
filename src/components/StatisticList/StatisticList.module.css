@@ -1,3 +1,7 @@
+:root {
+  --ex: #66bb6a;
+}
+
 .list {
   list-style: none;
   display: flex;
@@ -32,7 +36,7 @@
 
 .good {
   background-image: url('/src/images/like.png');
-  background-color: #66bb6a;
+  background-color: var(--ex);
 }
 
 .neutral {

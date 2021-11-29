@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Section from './components/section/Section';
-import FeedbackList from './components/feedback/FeedbackList';
-import StatisticList from './components/statistics/StatisticList';
-import Notification from './components/notification/Notification';
-import imageUrl from './images/feedback.png';
+import Section from '../Section/Section';
+import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
+import StatisticList from '../StatisticList/StatisticList';
+import Notification from '../Notification/Notification';
+import imageUrl from '../../images/feedback.png';
 
 export default class App extends Component {
   state = {
@@ -39,7 +39,7 @@ export default class App extends Component {
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedbackList
+          <FeedbackOptions
             good={good}
             neutral={neutral}
             bad={bad}

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import Buttons from '../buttons/Buttons';
-import s from './FeedbackList.module.css';
+import Buttons from '../Buttons/Buttons';
+import s from './FeedbackOption.module.css';
 
-export default function FeedbackList({
+export default function FeedbackOptions({
   good,
   neutral,
   bad,
@@ -41,7 +41,7 @@ export default function FeedbackList({
   );
 }
 
-FeedbackList.propTypes = {
+FeedbackOptions.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
