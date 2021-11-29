@@ -1,6 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import Buttons from '../Buttons/Buttons';
+import Buttons from '../Buttons';
 import s from './FeedbackOption.module.css';
 
 export default function FeedbackOptions({

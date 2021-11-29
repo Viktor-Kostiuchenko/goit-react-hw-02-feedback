@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Section from '../Section/Section';
-import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
-import StatisticList from '../StatisticList/StatisticList';
-import Notification from '../Notification/Notification';
+import Section from '../Section';
+import FeedbackOptions from '../FeedbackOptions';
+import StatisticList from '../StatisticList';
+import Notification from '../Notification';
 import imageUrl from '../../images/feedback.png';
 
 export default class App extends Component {
