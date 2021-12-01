@@ -41,4 +41,6 @@ StatisticList.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
+  totalFeedback: PropTypes.func.isRequired,
+  positiveFeedback: PropTypes.func.isRequired,
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Buttons from '../Buttons';
 import s from './FeedbackOption.module.css';
 
@@ -11,11 +11,11 @@ export default function FeedbackOptions({
   return (
     <>
       <ul className={s.list}>
-        {entries.map(entries => (
-          <li key={entries[0]} className={s.item}>
+        {entries.map(([key, value]) => (
+          <li key={key} className={s.item}>
             <Buttons
-              fbName={entries[0]}
-              fbAmount={entries[1]}
+              fbName={key}
+              fbAmount={value}
               onDecreaseFbAmount={onDecreaseFbAmount}
               onIncreaseFbAmount={onIncreaseFbAmount}
             ></Buttons>
@@ -26,9 +26,8 @@ export default function FeedbackOptions({
   );
 }
 
-// FeedbackOptions.propTypes = {
-//   entries: PropTypes.arrayOf(PropTypes.oneOfType([
-//     PropTypes.string,
-//     PropTypes.number
-//   ]))
-// };
+FeedbackOptions.propTypes = {
+  entries: PropTypes.arrayOf(PropTypes.array).isRequired,
+  onIncreaseFbAmount: PropTypes.func.isRequired,
+  onDecreaseFbAmount: PropTypes.func.isRequired,
+};
