@@ -37,19 +37,19 @@ export default class App extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
+    const noFeedbacks = this.countTotalFeedback() === 0;
     return (
       <>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            entries={Object.entries(this.state)}
+            options={Object.entries(this.state)}
             onIncreaseFbAmount={this.increaseFbAmount}
             onDecreaseFbAmount={this.decreaseFbAmount}
           />
         </Section>
         <Section title="Statistics">
-          {this.countTotalFeedback() === 0 ? (
-            <Notification url={imageUrl} />
-          ) : (
+          {noFeedbacks && <Notification url={imageUrl} />}
+          {!noFeedbacks && (
             <StatisticList
               good={good}
               neutral={neutral}

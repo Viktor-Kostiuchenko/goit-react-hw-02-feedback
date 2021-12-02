@@ -4,14 +4,14 @@ import Buttons from '../Buttons';
 import s from './FeedbackOption.module.css';
 
 export default function FeedbackOptions({
-  entries,
+  options,
   onIncreaseFbAmount,
   onDecreaseFbAmount,
 }) {
   return (
     <>
       <ul className={s.list}>
-        {entries.map(([key, value]) => (
+        {options.map(([key, value]) => (
           <li key={key} className={s.item}>
             <Buttons
               fbName={key}
@@ -27,7 +27,7 @@ export default function FeedbackOptions({
 }
 
 FeedbackOptions.propTypes = {
-  entries: PropTypes.arrayOf(PropTypes.array).isRequired,
+  options: PropTypes.arrayOf(PropTypes.array).isRequired,
   onIncreaseFbAmount: PropTypes.func.isRequired,
   onDecreaseFbAmount: PropTypes.func.isRequired,
 };
