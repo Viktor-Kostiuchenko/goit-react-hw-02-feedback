@@ -58,6 +58,10 @@
   background-color: #007bff;
 }
 
-.number {
+.statName {
+  text-transform: capitalize;
+}
+
+.statResult {
   font-size: 25px;
 }

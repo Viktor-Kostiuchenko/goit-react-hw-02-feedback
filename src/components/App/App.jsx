@@ -25,8 +25,7 @@ export default class App extends Component {
   };
 
   countTotalFeedback = () => {
-    const { good, neutral, bad } = this.state;
-    return good + neutral + bad;
+    return Object.values(this.state).reduce((total, value) => total + value, 0);
   };
 
   countPositiveFeedbackPercentage = () => {
@@ -36,26 +35,29 @@ export default class App extends Component {
   };
 
   render() {
-    const { good, neutral, bad } = this.state;
+    const increaseFbAmount = this.increaseFbAmount;
+    const decreaseFbAmount = this.decreaseFbAmount;
+    const totalFb = this.countTotalFeedback;
+    const positiveFb = this.countPositiveFeedbackPercentage;
     const noFeedbacks = this.countTotalFeedback() === 0;
+    const options = Object.entries(this.state);
+
     return (
       <>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={Object.entries(this.state)}
-            onIncreaseFbAmount={this.increaseFbAmount}
-            onDecreaseFbAmount={this.decreaseFbAmount}
+            options={options}
+            onIncreaseFbAmount={increaseFbAmount}
+            onDecreaseFbAmount={decreaseFbAmount}
           />
         </Section>
         <Section title="Statistics">
           {noFeedbacks && <Notification url={imageUrl} />}
           {!noFeedbacks && (
             <StatisticList
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              totalFeedback={this.countTotalFeedback}
-              positiveFeedback={this.countPositiveFeedbackPercentage}
+              options={options}
+              totalFeedback={totalFb}
+              positiveFeedback={positiveFb}
             />
           )}
         </Section>

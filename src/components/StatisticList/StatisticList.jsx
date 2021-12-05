@@ -3,44 +3,31 @@ import PropTypes from 'prop-types';
 import s from './StatisticList.module.css';
 
 export default function StatisticList({
-  good,
-  neutral,
-  bad,
+  options,
   totalFeedback,
   positiveFeedback,
 }) {
   return (
-    <>
-      <ul className={s.list}>
-        <li className={`${s.item} ${s.good}`}>
-          <p>Good</p>
-          <span className={s.number}>{good}</span>
+    <ul className={s.list}>
+      {options.map(([key, value]) => (
+        <li key={key} className={`${s.item} ${s[key]}`}>
+          <p className={s.statName}>{key}</p>
+          <span className={s.statResult}>{value}</span>
         </li>
-        <li className={`${s.item} ${s.neutral}`}>
-          <p>Neutral</p>
-          <span className={s.number}>{neutral}</span>
-        </li>
-        <li className={`${s.item} ${s.bad}`}>
-          <p>Bad</p>
-          <span className={s.number}>{bad}</span>
-        </li>
-        <li className={`${s.item} ${s.total}`}>
-          <p>Total</p>
-          <span className={s.number}>{totalFeedback()}</span>
-        </li>
-        <li className={`${s.item} ${s.positive}`}>
-          <p>Positive</p>
-          <span className={s.number}>{positiveFeedback()}%</span>
-        </li>
-      </ul>
-    </>
+      ))}
+      <li key={'total'} className={`${s.item} ${s.total}`}>
+        <p className={s.statName}>total</p>
+        <span className={s.statResult}>{totalFeedback()}</span>
+      </li>
+      <li key={'positive'} className={`${s.item} ${s.positive}`}>
+        <p className={s.statName}>positive</p>
+        <span className={s.statResult}>{positiveFeedback()}%</span>
+      </li>
+    </ul>
   );
 }
 
 StatisticList.propTypes = {
-  good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
   totalFeedback: PropTypes.func.isRequired,
   positiveFeedback: PropTypes.func.isRequired,
 };
